@@ -1,0 +1,26 @@
+<hibernate-configuration>
+    <session-factory>
+        <!-- Driver dhe URL për MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rent?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Kristi2025!</property>
+
+        <!-- Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Auto create/update DB schema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Show SQL queries -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Entitetet -->
+        <mapping class="com.rent_car.entity.Customer"/>
+        <mapping class="com.rent_car.entity.Payment"/>
+        <mapping class="com.rent_car.entity.Rental"/>
+        <mapping class="com.rent_car.entity.Vehicle"/>
+        <mapping class="com.rent_car.entity.Inventari"/>
+    </session-factory>
+</hibernate-configuration>
