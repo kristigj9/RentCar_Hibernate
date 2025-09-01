@@ -31,6 +31,11 @@ public class Rental {
             orphanRemoval = true)
     List<Payment> payments = new ArrayList<>();
 
+    @OneToMany(mappedBy = "rental", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<RentalItem> rentalItems = new ArrayList<>();
+
+
+
     public Rental(){}
 
     public Rental( Customer customer, LocalDate startDate, LocalDate endDate, Vehicle vehicle) {

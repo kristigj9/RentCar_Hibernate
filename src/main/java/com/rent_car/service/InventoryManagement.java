@@ -15,7 +15,6 @@ public class InventoryManagement {
         Inventari inventari = new Inventari(quantity,status,vehicle);
         inventariRepo.addInventari(inventari);
     }
-
    // Mbajtja e sasisë së makinave për çdo model.
 
         public int numeroMakinatDisponibelInventar() {
@@ -43,7 +42,7 @@ public class InventoryManagement {
 
     }
 
-    public int shtoMakinaInventar(){
+    public int numeroMakinaInventar(){
         int quanityInventory = numeroMakinatDisponibelInventar();
         for (Inventari inventari : inventariRepo.findAllInventari()){
             if (inventari.getStatus() == Status.AVAILABLE){

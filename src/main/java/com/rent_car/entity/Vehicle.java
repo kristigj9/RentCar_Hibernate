@@ -13,7 +13,7 @@ public class Vehicle {
    private Long id;
 @OneToOne
 @JoinColumn(name = "Inventari_ID")
-   private Inventari inventari;
+private Inventari inventari;
 
    private String brand;
    private String model;
@@ -25,7 +25,7 @@ public class Vehicle {
 
     @OneToMany(mappedBy="vehicle",
             cascade=CascadeType.ALL)
-    List<Rental> rentals =new ArrayList<>();
+    List<RentalItem> rentalItems =new ArrayList<>();
     public Vehicle(){}
 
     public Vehicle( String brand, String model, String year, double dailyRate, Status status,String targa) {

@@ -22,5 +22,7 @@
         <mapping class="com.rent_car.entity.Rental"/>
         <mapping class="com.rent_car.entity.Vehicle"/>
         <mapping class="com.rent_car.entity.Inventari"/>
+        <mapping class="com.rent_car.entity.RentalItem"/>
+
     </session-factory>
 </hibernate-configuration>

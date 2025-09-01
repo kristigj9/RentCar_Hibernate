@@ -15,6 +15,7 @@ public class Inventari {
    @JoinColumn(name = "Vehicle_ID")
    private Vehicle vehicle;
 
+   public Inventari (){}
     public Inventari(int quantity, Status status, Vehicle vehicle) {
         this.quantity = quantity;
         this.status = status;

@@ -29,6 +29,8 @@ public class InventariRepo {
         }
 
 
+
+
         public void deleteVehicleIDInventari(long id){
             Transaction t=null;
             try(Session s= HibernateUtil.getSessionFactory().openSession()) {
@@ -105,6 +107,36 @@ public class InventariRepo {
                     .setParameter("model", model)
                     .list();
             return list.size();
+        }
+    }
+
+
+
+    public void addInventariById(int Id) {
+        Transaction t = null;
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            t = s.beginTransaction();
+            Inventari inventari = new Inventari();
+
+            boolean ekziston = findByTargaInventari(inventari.getVehicle().getTarga());
+            if (ekziston) {
+                System.out.println("Makina me ID " + Id + " është regjistruar më parë në inventar");
+            } else {
+                Vehicle vehicle = s.get(Vehicle.class, Id);
+                if (vehicle != null) {
+                    inventari.setVehicle(vehicle);
+                    inventari.setStatus(Status.AVAILABLE);
+
+                    s.save(inventari);
+                    t.commit();
+                    System.out.println("Makina me ID " + Id + " u shtua me sukses në inventar");
+                } else {
+                    System.out.println("Makina me ID " + Id + " nuk ekziston në databazë");
+                }
+            }
+        } catch (Exception e) {
+            if (t != null) t.rollback();
+            e.printStackTrace();
         }
     }
 

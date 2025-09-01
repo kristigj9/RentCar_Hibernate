@@ -65,10 +65,10 @@ public class Main {
         LocalDate endRental1 = LocalDate.parse("06-06-2025",formatter);
         LocalDate endRental2 = LocalDate.parse("16-06-2025",formatter);
 
-        Rental r1=new Rental(c1,startRental,endRental,v1);
-        Rental r2=new Rental(c1,startRental1,endRental1,v2);
-        Rental r3=new Rental(c2,startRental2,endRental2,v3);
-        Rental r4=new Rental(c1,startRental1,endRental2,v2);
+        Rental r1=new Rental(c1,startRental,endRental,v2);
+        Rental r2=new Rental(c1,startRental1,endRental1,v3);
+        Rental r3=new Rental(c2,startRental2,endRental2,v1);
+        Rental r4=new Rental(c1,startRental1,endRental2,v4);
 
         rentalRepo.rentaladd(r1);
         rentalRepo.rentaladd(r2);
